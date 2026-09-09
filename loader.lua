@@ -1,5 +1,6 @@
--- Patch Hub | Animal Hospital, Funky Friday, Project : RUSHER
+-- Patch Hub | Animal Hospital, Funky Friday, Project : RUSHER, Fisch
 local scripts = {
+    [131716211654599] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/fisch-patch-hub-protected.lua",
     [104522435597696] = "https://raw.githubusercontent.com/patch-ez/animals-touched-me/main/animal_hospital_automation_obfuscated.lua",
     [6447798030] = "https://raw.githubusercontent.com/patch-ez/im-funky-tonight-twin/main/funky-friday-perfect-autoplay_obfuscated.luau",
     [106809703371658] = "https://raw.githubusercontent.com/patch-ez/project-rusher/main/project-rusher-patch-hub-protected.lua",
