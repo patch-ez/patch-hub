@@ -13,10 +13,16 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/patch-ez/patch-hub/ma
 | Project : RUSHER | 106809703371658 |
 | Fisch | 131716211654599 |
 | SCROOMS 🍄 | 97927337336367 |
+| Foresters! 🌳 | 117020342702668 |
 
 The loader checks `game.PlaceId` and downloads and executes only the matching protected script. In all other games, it returns immediately without downloading a game script, displaying UI, or printing anything.
 
-The existing game scripts stay in their repositories. Fisch and SCROOMS are hosted here as `fisch-patch-hub-protected.lua` and `scrooms-patch-hub-protected.lua`. Updates are picked up automatically. Sell Lemons is discontinued and is not included.
+The existing game scripts stay in their repositories. Fisch, SCROOMS, and Foresters are hosted here as `fisch-patch-hub-protected.lua`, `scrooms-patch-hub-protected.lua`, and `foresters-patch-hub-protected.lua`. Updates are picked up automatically. Sell Lemons is discontinued and is not included.
+
+## Foresters! 🌳
+
+Patch Hub includes Auto Chop Trees with instant/fast minigame automation, Auto Sawminigame, Auto Pick Up Logs, Sell All Trees with instantaneous merchant bypass teleport, full Axe Catalog purchasing & equipping, Tree ESP (billboards and rarity highlights), island, sawmill, and merchant teleports, and player modifications (WalkSpeed, JumpPower, Infinite Jump, Noclip, Fullbright, Anti-AFK).
+
 
 ## SCROOMS 🍄
 
