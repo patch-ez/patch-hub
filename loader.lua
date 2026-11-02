@@ -305,7 +305,10 @@ local url = scripts[game.PlaceId]
 if not url then return end
 if not game:IsLoaded() then game.Loaded:Wait() end
 
-local ok, source = pcall(function() return game:HttpGet(url) end)
+local ok, source = pcall(function() return game:HttpGet(url .. "?t=" .. tostring(os.time())) end)
+if not ok or type(source) ~= "string" or #source <= 100 then
+    ok, source = pcall(function() return game:HttpGet(url) end)
+end
 assert(ok and type(source) == "string" and #source > 100, "Patch Hub: script download failed. Please try again.")
 local run, err = loadstring(source, "PatchHub_" .. tostring(game.PlaceId))
 assert(run, "Patch Hub: could not load script: " .. tostring(err))
