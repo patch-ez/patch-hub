@@ -14,6 +14,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/patch-ez/patch-hub/ma
 | Fisch | 131716211654599 |
 | SCROOMS 🍄 | 97927337336367 |
 | Foresters! 🌳 | 117020342702668 |
+| [🎃] Throw Food For Animals | 120219252362013 |
 
 The loader checks `game.PlaceId` and downloads and executes only the matching protected script. In all other games, it returns immediately without downloading a game script, displaying UI, or printing anything.
 
