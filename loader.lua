@@ -2,6 +2,7 @@
 -- Supported Games: Animal Hospital, Funky Friday, Project : RUSHER, Fisch, SCROOMS, Foresters, Throw Food For Animals, RIVALS
 local scripts = {
     [17625359962] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/rivals-patch-hub-protected.lua",
+    [117398147513099] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/rivals-patch-hub-protected.lua",
     [131716211654599] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/fisch-patch-hub-protected.lua",
     [97927337336367] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/scrooms-patch-hub-protected.lua",
     [117020342702668] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/foresters-patch-hub-protected.lua",
@@ -9,6 +10,11 @@ local scripts = {
     [104522435597696] = "https://raw.githubusercontent.com/patch-ez/animals-touched-me/main/animal_hospital_automation_obfuscated.lua",
     [6447798030] = "https://raw.githubusercontent.com/patch-ez/im-funky-tonight-twin/main/funky-friday-perfect-autoplay_obfuscated.luau",
     [106809703371658] = "https://raw.githubusercontent.com/patch-ez/project-rusher/main/project-rusher-patch-hub-protected.lua",
+}
+
+-- Support whole Universes / Game IDs so match servers, sub-places, and arenas are automatically supported
+local universes = {
+    [6035872082] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/rivals-patch-hub-protected.lua", -- RIVALS (Hub, 1v1, 2v2, FFA, Custom Matches)
 }
 
 local INVITE_URL = "https://discord.gg/hW3cnkq8pm"
@@ -303,7 +309,7 @@ task.spawn(function()
     pcall(showDiscordPopup)
 end)
 
-local url = scripts[game.PlaceId]
+local url = scripts[game.PlaceId] or universes[game.GameId]
 if not url then return end
 if not game:IsLoaded() then game.Loaded:Wait() end
 
