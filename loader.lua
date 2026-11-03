@@ -1,6 +1,7 @@
 -- Patch Hub | Universal Loader
--- Supported Games: Animal Hospital, Funky Friday, Project : RUSHER, Fisch, SCROOMS, Foresters, Throw Food For Animals
+-- Supported Games: Animal Hospital, Funky Friday, Project : RUSHER, Fisch, SCROOMS, Foresters, Throw Food For Animals, RIVALS
 local scripts = {
+    [17625359962] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/rivals-patch-hub-protected.lua",
     [131716211654599] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/fisch-patch-hub-protected.lua",
     [97927337336367] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/scrooms-patch-hub-protected.lua",
     [117020342702668] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/foresters-patch-hub-protected.lua",
