@@ -1,5 +1,20 @@
 -- Patch Hub | Universal Loader
 -- Supported Games: Animal Hospital, Funky Friday, Project : RUSHER, Fisch, SCROOMS, Foresters, Throw Food For Animals, RIVALS
+
+-- Singleton Guard across executors and threads
+local _env = (getgenv and getgenv()) or _G
+if _env.PatchHub_Rivals_Loaded then return end
+
+local _cg = game:GetService("CoreGui")
+local _lp = game:GetService("Players").LocalPlayer
+local _lockContainer = (pcall(gethui) and gethui()) or _cg or (_lp and _lp:FindFirstChild("PlayerGui")) or game:GetService("RobloxReplicatedStorage")
+if _lockContainer and _lockContainer:FindFirstChild("PatchHub_Rivals_ActiveLock") then
+    local _lock = _lockContainer:FindFirstChild("PatchHub_Rivals_ActiveLock")
+    local _lockTime = tonumber(_lock.Value) or 0
+    if os.clock() - _lockTime < 8 then
+        return
+    end
+end
 local scripts = {
     [17625359962] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/rivals-patch-hub-protected.lua",
     [117398147513099] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/rivals-patch-hub-protected.lua",
