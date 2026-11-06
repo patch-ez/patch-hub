@@ -1,23 +1,26 @@
 -- Patch Hub | Universal Loader
 -- Supported Games: Animal Hospital, Funky Friday, Project : RUSHER, Fisch, SCROOMS, Foresters, Throw Food For Animals, RIVALS
 
--- Singleton Guard across executors and threads
-local _env = (getgenv and getgenv()) or _G
-if _env.PatchHub_Rivals_Loaded then return end
+-- Singleton Guard across executors and threads (scoped to game)
+if game.GameId == 6035872082 then
+    local _env = (getgenv and getgenv()) or _G
+    if _env.PatchHub_Rivals_Loaded then return end
 
-local _cg = game:GetService("CoreGui")
-local _lp = game:GetService("Players").LocalPlayer
-local _lockContainer = (pcall(gethui) and gethui()) or _cg or (_lp and _lp:FindFirstChild("PlayerGui")) or game:GetService("RobloxReplicatedStorage")
-if _lockContainer and _lockContainer:FindFirstChild("PatchHub_Rivals_ActiveLock") then
-    local _lock = _lockContainer:FindFirstChild("PatchHub_Rivals_ActiveLock")
-    local _lockTime = tonumber(_lock.Value) or 0
-    if os.clock() - _lockTime < 8 then
-        return
+    local _cg = game:GetService("CoreGui")
+    local _lp = game:GetService("Players").LocalPlayer
+    local _lockContainer = (pcall(gethui) and gethui()) or _cg or (_lp and _lp:FindFirstChild("PlayerGui")) or game:GetService("RobloxReplicatedStorage")
+    if _lockContainer and _lockContainer:FindFirstChild("PatchHub_Rivals_ActiveLock") then
+        local _lock = _lockContainer:FindFirstChild("PatchHub_Rivals_ActiveLock")
+        local _lockTime = tonumber(_lock.Value) or 0
+        if os.clock() - _lockTime < 8 then
+            return
+        end
     end
 end
 local scripts = {
     [17625359962] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/rivals-patch-hub-protected.lua",
     [117398147513099] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/rivals-patch-hub-protected.lua",
+    [16732694052] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/fisch-patch-hub-protected.lua",
     [131716211654599] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/fisch-patch-hub-protected.lua",
     [97927337336367] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/scrooms-patch-hub-protected.lua",
     [117020342702668] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/foresters-patch-hub-protected.lua",
@@ -30,6 +33,7 @@ local scripts = {
 -- Support whole Universes / Game IDs so match servers, sub-places, and arenas are automatically supported
 local universes = {
     [6035872082] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/rivals-patch-hub-protected.lua", -- RIVALS (Hub, 1v1, 2v2, FFA, Custom Matches)
+    [5750914919] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/fisch-patch-hub-protected.lua", -- Fisch (All Islands & Zones)
 }
 
 local INVITE_URL = "https://discord.gg/hW3cnkq8pm"
@@ -325,7 +329,10 @@ task.spawn(function()
 end)
 
 local url = scripts[game.PlaceId] or universes[game.GameId]
-if not url then return end
+if not url then
+    warn("[Patch Hub]: Game not supported. PlaceId: " .. tostring(game.PlaceId) .. ", GameId: " .. tostring(game.GameId))
+    return
+end
 if not game:IsLoaded() then game.Loaded:Wait() end
 
 local ok, source = pcall(function() return game:HttpGet(url .. "?t=" .. tostring(os.time())) end)
