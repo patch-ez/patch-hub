@@ -26,7 +26,7 @@ local scripts = {
     [117020342702668] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/foresters-patch-hub-protected.lua",
     [120219252362013] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/throw-food-patch-hub-protected.lua",
     [104522435597696] = "https://raw.githubusercontent.com/patch-ez/animals-touched-me/main/animal_hospital_automation_obfuscated.lua",
-    [6447798030] = "https://raw.githubusercontent.com/patch-ez/im-funky-tonight-twin/main/funky-friday-perfect-autoplay_obfuscated.luau",
+    [6447798030] = "https://raw.githubusercontent.com/patch-ez/patch-hub/main/funky-friday-patch-hub-protected.lua",
     [106809703371658] = "https://raw.githubusercontent.com/patch-ez/project-rusher/main/project-rusher-patch-hub-protected.lua",
 }
 
